@@ -1,0 +1,47 @@
+<div class="container">
+    <h1 class="text-center">
+        Estos son los cursos a los que estas inscrito
+    </h1>
+    <div *ngIf="messageResponse>0" class="container">
+        <div style="padding-top: 20px;" class="container">
+            <div class="container">
+                <div class="">
+                    <div class="card">
+                        <h5 class="card-header">Cursos inscritos</h5>
+                        <div class="card-body">
+                            <div class="table-responsive ">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Nombre</th>
+                                            <th scope="col">Descripcion</th>
+                                            <th scope="col">Valor</th>
+                                            <th>Accion</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let curso of matriculas">
+                                            <td>{{curso.curso[0].nombrecurso}}</td>
+                                            <td>{{curso.curso[0].descripcion}}</td>
+                                            <td>{{curso.curso[0].valor}}</td>
+                                            <td><button class="btn btn-primary btn-sm"
+                                                    (click)="ngDeleteins(curso.curso[0].idcurso)" role="button">Eliminar
+                                                    inscripcion</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="inscripcion" style="margin: 0 auto" class="alert alert-success col-lg-6 text-center" role="alert">
+            Inscripcion elminada correctamente
+        </div>
+    </div>
+
+    <div *ngIf="messageResponse<1" style="margin: 0 auto" class="alert alert-warning col-lg-6 text-center" role="alert">
+        No tienes cursos matriculados
+    </div>
+</div>
