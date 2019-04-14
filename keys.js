@@ -2,7 +2,7 @@
 
 const keys = {
     uri:   'mongodb+srv://admin:admin@cluster0-kuzxw.mongodb.net/test?retryWrites=true',
-    port :3000
+    port  : process.env.PORT || 3000
 }
 
 module.exports = keys

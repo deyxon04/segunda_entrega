@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
       console.log(error);
     })
   }
-
+ 
   ngGetDetail(curso) {
     this._cursosService.ngGetOneCurso(curso).subscribe(response => {
       this.oneCurso = response;
