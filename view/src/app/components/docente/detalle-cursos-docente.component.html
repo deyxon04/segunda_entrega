@@ -1,0 +1,65 @@
+<div class="container">
+  <h4 class="text-center">
+    Bienvenido docente
+  </h4>
+</div>
+<h5>Todos los cursos</h5>
+<div class="">
+  <div class="card">
+    <h5 class="card-header">Cursos cerrados</h5>
+    <div class="card-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Nombre curso</th>
+            <th scope="col">Id curso</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Valor</th>
+            <th scope="col">Modalidad</th>
+            <th scope="col">Intensidad</th>
+            <th scope="col">Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let curso of cursosAdocente">
+            <td>{{curso.idcurso}}</td>
+            <td>{{curso.nombrecurso}}</td>
+            <td>{{curso.descripcion}}</td>
+            <td>{{curso.valor}}</td>
+            <td>{{curso.modalidad}}</td>
+            <td>{{curso.intensidad}}</td>
+            <td>{{curso.estado}}</td>
+            <td><button class="btn btn-primary " (click)="ngViewCurso(curso.idcurso)">Ver curso</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <br>
+  </div>
+
+  <div *ngIf="cursoStorage" class="container">
+    <h1 class="text-center">Personas matriculadas en este curso</h1>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Cedula</th>
+          <th scope="col">Correo</th>
+          <th scope="col">Id curso</th>
+          <th scope="col">Modalidad</th>
+          <th scope="col">Intensidad</th>
+          <th scope="col">Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let curso of cursoStorage">
+          <td>{{curso.nombre}}</td>
+          <td>{{curso.documento}}</td>
+          <td>{{curso.correo}}</td>
+          <td>{{curso.curso[0].idcurso}}</td>
+          <td>{{curso.curso[0].nombrecurso}}</td>
+          <td>{{curso.curso[0].valor}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

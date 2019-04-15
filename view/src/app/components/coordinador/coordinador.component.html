@@ -29,6 +29,8 @@
                         <td>{{curso.modalidad}}</td>
                         <td>{{curso.intensidad}}</td>
                         <td>{{curso.estado}}</td>
+                        <td><button *ngIf="curso.estado == 'disponible'" class="btn btn-primary "
+                                (click)="ngCerrarCurso(curso.idcurso)">Cerrar curso </button></td>
                     </tr>
                 </tbody>
             </table>
@@ -92,4 +94,8 @@
     <div *ngIf="successResponse" style="margin: 0 auto" class="alert alert-success text-center col-lg-6" role="alert">
         Curso guardado exitosamente
     </div>
+</div>
+
+<div *ngIf="message2" class="alert alert-success text-center col-lg-6" style="margin: 0% auto" role="alert">
+    Curso cerrado correctamente
 </div>

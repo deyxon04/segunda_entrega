@@ -44,7 +44,7 @@ function getCursosDisponibles(req, res) {
 
 //J-9
 function getCursosPorDocente(req, res) {
-  buscarCursos(req, res, 'cerrado', req.params.docente)
+  buscarCursos(req, res, 'cerrado', req.params.id)
 }
 
 function getAllCursos(req, res) {
@@ -59,6 +59,7 @@ function getAllCursos(req, res) {
 
 //J -6 HUgetAllCursos
 function cerrarCurso(req, res) {
+  console.log(req.body.idcurso);
   Curso.findOneAndUpdate({ idcurso: req.body.idcurso }, { estado: 'cerrado' }, (error, response) => {
     if (error) {
       return res.status(500).send(error)

@@ -24,8 +24,25 @@ export class CursosService {
     return this._http.post(keys.url + 'addcurso', curso, { headers: headers })
   }
 
-  ngGetOneCurso(curso){
+  ngGetOneCurso(curso) {
     let headers = new HttpHeaders({ 'Content-Type': 'application/json' })
     return this._http.get(keys.url + `getOne/${curso.idcurso}`, { headers: headers })
   }
+
+  ngGetDetalleCurso(id) {
+    let headers = new HttpHeaders({ 'Content-Type': 'application/json' })
+    return this._http.get(keys.url + `getinfomatriculadosporcurso/${id}`, { headers: headers })
+  }
+
+  ngGetCursosDisponibles() {
+    let headers = new HttpHeaders({ 'Content-Type': 'application/json' })
+    return this._http.get(keys.url + `getcursosDisponibles/`, { headers: headers })
+  }
+
+  ngCerrarCursoCoor(id) {
+    let headers = new HttpHeaders({ 'Content-Type': 'application/json' })
+    return this._http.post(keys.url + 'cerrarcurso', { idcurso: id }, { headers: headers })
+  }
+
+
 }

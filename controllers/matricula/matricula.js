@@ -58,7 +58,7 @@ function getMatriculaByDocument(req, res) {
   })
 }
 function removeCursoMatriculado(req, res) {
-  Matricula.findOneAndDelete({ idcurso: req.params.idcurso }, (error, response) => {
+  Matricula.findOneAndDelete({ idcurso: req.body.idcurso, documento: req.body.documento }, (error, response) => {
     if (error) {
       return res.status(500).send(error)
     } else {
@@ -75,8 +75,7 @@ function removeCursoMatriculado(req, res) {
 
 //J-9HU
 function getInfoMatriculadosPorCurso(req, res) {
-  console.log(req.body.curso)
-  Matricula.find({ curso: req.params.curso }, (error, response) => {
+  Matricula.find({ idcurso: req.params.idcurso }, (error, response) => {
     if (error) {
       return res.status(500).send(error)
     } else {

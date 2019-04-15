@@ -9,7 +9,6 @@ import { MainComponent } from './pages/main/main.component';
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
 import { DocenteComponent } from './components/docente/docente.component';
-import { InteresadoComponent } from './components/interesado/interesado.component';
 import { CoordinadorComponent } from './components/coordinador/coordinador.component';
 import { ComponentsModule } from './components/components.module';
 import { HomeComponent } from './pages/home/home.component';
@@ -22,7 +21,6 @@ import { HomeComponent } from './pages/home/home.component';
     MainComponent,
     CoordinadorComponent,
     DocenteComponent,
-    InteresadoComponent,
     HomeComponent,
   ],
   imports: [

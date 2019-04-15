@@ -24,5 +24,15 @@ export class MatriculaService {
     let headers = new HttpHeaders({ 'Content-Type': 'application/json' })
     return this._http.delete(keys.url + 'deleteMatricula/' + id, { headers: headers })
   }
+
+  ngDeteMatriculaCoor(curso) {
+    let headers = new HttpHeaders({ 'Content-Type': 'application/json' })
+    return this._http.post(keys.url + 'removecursomatriculado/', curso, { headers: headers })
+  }
+
+  ngGetMatriculaDocen(id) {
+    let headers = new HttpHeaders({ 'Content-Type': 'application/json' })
+    return this._http.get(keys.url + 'getinfomatriculadosporcurso/' + id, { headers: headers })
+  }
 }
 

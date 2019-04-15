@@ -11,6 +11,7 @@ export class CoordinadorComponent implements OnInit {
   public validate: boolean = false;
   public errorResponse
   public successResponse
+  public message2
   constructor(private _cursosService: CursosService) { }
 
   ngOnInit() {
@@ -42,5 +43,17 @@ export class CoordinadorComponent implements OnInit {
     } else {
       console.log("debes rellenar todos los campos");
     }
+  }
+
+
+  ngCerrarCurso(id){
+    this._cursosService.ngCerrarCursoCoor(id).subscribe(response => {
+      this.message2 = true
+        setTimeout(() => {
+        location.reload()
+      }, 1000);
+    }, error => {
+      console.log(error);
+    })
   }
 }

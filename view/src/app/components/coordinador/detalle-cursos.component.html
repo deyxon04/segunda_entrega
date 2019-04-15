@@ -1,0 +1,71 @@
+<div class="container">
+  <h4 class="text-center">
+    Bienvenido coordinador
+  </h4>
+</div>
+<h5>Todos los cursos disponibles</h5>
+<div *ngIf="control1" class="">
+  <div class="card">
+    <h5 class="card-header">Cursos disponibles y cerrados</h5>
+    <div class="card-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Nombre curso</th>
+            <th scope="col">Id curso</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Valor</th>
+            <th scope="col">Modalidad</th>
+            <th scope="col">Intensidad</th>
+            <th scope="col">Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let curso of cursos">
+            <td>{{curso.idcurso}}</td>
+            <td>{{curso.nombrecurso}}</td>
+            <td>{{curso.descripcion}}</td>
+            <td>{{curso.valor}}</td>
+            <td>{{curso.modalidad}}</td>
+            <td>{{curso.intensidad}}</td>
+            <td>{{curso.estado}}</td>
+            <td> <button class="btn btn-primary" (click)="ngViewDetail(curso.idcurso)">Ver detalle</button> </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <br>
+  </div>
+</div>
+
+<div *ngIf="message1" style="margin:  0 auto" class="alert alert-warning text-center col-lg-6" role="alert">
+  {{message1}}
+</div>
+
+<div *ngIf="detalleCurso" class="container">
+  <h1 class="text-center">Personas matriculadas en este curso</h1>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Cedula</th>
+        <th scope="col">Correo</th>
+        <th scope="col">Id curso</th>
+        <th scope="col">Modalidad</th>
+        <th scope="col">Intensidad</th>
+        <th scope="col">Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let curso of detalleCurso">
+        <td>{{curso.nombre}}</td>
+        <td>{{curso.documento}}</td>
+        <td>{{curso.correo}}</td>
+        <td>{{curso.curso[0].idcurso}}</td>
+        <td>{{curso.curso[0].nombrecurso}}</td>
+        <td>{{curso.curso[0].valor}}</td>
+        <td> <button class="btn btn-primary" (click)="ngDelete(curso)">Eliminar</button> </td>
+      </tr>
+    </tbody>  
+  </table>
+</div>
